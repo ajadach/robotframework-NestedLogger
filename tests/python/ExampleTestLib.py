@@ -1,0 +1,35 @@
+from robot.api.deco import keyword
+from NestedLogger import NestedLogger
+
+class ExampleTestLib:
+
+    @keyword("Do Something")
+    def do_something(self):
+        return "Did something!"
+    
+    @keyword("Do Something With My Logger")
+    def do_something_with_my_logger(self, *params_and_values):
+        """ Fills form parameters with provided prameters and values.
+
+        *Arguments:*
+        | =Name= | =Description= | =Example value= |
+        | params_and_values | Alternating parameter names and values | "Full Name"    "Artur Ziolkowski" |
+
+        *Return*
+        | String | Done |
+        """
+        my_logger = NestedLogger()
+
+        lib_name = self.__class__.__name__
+        for param, value in zip(params_and_values[::2], params_and_values[1::2]):
+            kw_name =   "Do operation for {param} with value {value}".format(param=param, value=value)
+            my_logger.start_keyword(kw_name, lib_name)
+
+            try:
+                print("do you code")
+                my_logger.end_keyword(kw_name, lib_name, 'PASS')
+                
+            except Exception as e:
+                my_logger.end_keyword(kw_name, lib_name, 'FAIL')
+                raise e
+        return("Done")
