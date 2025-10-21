@@ -8,7 +8,7 @@ long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
     name='robotframework-nestedlogger',
-    version='1.0.0',
+    version='1.0.1',
     author='Your Name',
     author_email='your.email@example.com',
     description='A Robot Framework library for nested keyword logging in Python implementations',
