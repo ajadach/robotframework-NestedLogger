@@ -30,7 +30,7 @@ setup(
         'Programming Language :: Python :: 3.12',
         'Framework :: Robot Framework',
         'Framework :: Robot Framework :: Library',
-        'Framework :: Robot Framework :: Lib rary',
+        'Framework :: Robot Framework :: Library',
     ],
     keywords='robotframework testing testautomation nested logging',
     python_requires='>=3.10',
