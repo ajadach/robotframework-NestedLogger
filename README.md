@@ -6,14 +6,6 @@ The goal of this library is to enable the registration of keywords so that they 
 
 The `NestedLogger` library allows Robot Framework test libraries to dynamically log keywords during test execution. This is particularly useful when you want to break down complex operations into smaller inside of python
 
-## Example Output
-
-Here's how nested keywords appear in the Robot Framework log report:
-
-![Nested Keywords in Log Report](screenshots/ExampleTestLib.png)
-
-Each nested operation is logged as a separate keyword with its own pass/fail status, making it easy to trace execution and identify issues.
-
 ## Installation
 
 ### Install from source
@@ -132,6 +124,16 @@ Test Processing
 ```
 
 Each item will appear as a separate keyword in the log.html report with its own pass/fail status.
+
+
+## Example Output
+
+Here's how nested keywords appear in the Robot Framework log report:
+
+![Nested Keywords in Log Report](screenshots/ExampleTestLib.png)
+
+Each nested operation is logged as a separate keyword with its own pass/fail status, making it easy to trace execution and identify issues.
+
 
 ## API
 
