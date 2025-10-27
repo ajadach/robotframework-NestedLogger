@@ -1,3 +1,4 @@
+import ipdb.stdout
 from robot.api.deco import keyword
 from NestedLogger import NestedLogger
 
@@ -18,24 +19,29 @@ class ExampleTestLib:
         *Return*
         | String | Done |
         """
+        
+
         my_logger = NestedLogger()
 
         lib_name = self.__class__.__name__
         for param, value in zip(params_and_values[::2], params_and_values[1::2]):
             kw_name =   "Do operation for {param} with value {value}".format(param=param, value=value)
             my_logger.start_keyword(kw_name, lib_name)
-
+            
+            status = 'PASS'
+            error = None
             try:
-                print("do you code")
-                my_logger.end_keyword(kw_name, lib_name, 'PASS')
-                status = 'PASS'                
+                print("do your code")
+                if value == 'Value3':
+                    raise ValueError("Simulated error for testing")
             except Exception as e:
                 status = 'FAIL'
+                error = e
             finally:
                 my_logger.end_keyword(kw_name, lib_name, status)
-                if status == 'FAIL':
-                    raise e
-                return("Done")
+                if error:
+                    raise error
+        return "Done"
 
     @keyword("Do Something With Context Manager")
     def do_something_with_context_manager(self, *params_and_values):

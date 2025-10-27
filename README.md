@@ -54,12 +54,18 @@ class MyLibrary:
             kw_name = "Do operation for {param} with value {value}".format(param=param, value=value)
             my_logger.start_keyword(kw_name, lib_name)
 
+            status = 'PASS'
+            error = None
             try:
                 print("do your code")
-                my_logger.end_keyword(kw_name, lib_name, 'PASS')
             except Exception as e:
-                my_logger.end_keyword(kw_name, lib_name, 'FAIL')
-                raise e
+                status = 'FAIL'
+                error = e
+            finally:
+                my_logger.end_keyword(kw_name, lib_name, status)
+                if error:
+                    raise error
+
         return "Done"
 
     def _process_single_item(self, item):
