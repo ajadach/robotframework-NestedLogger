@@ -12,5 +12,9 @@ Test Nested Logging
     [Documentation]    Test nested keyword logging functionality
     Do Something With My Logger    Parameter1    Value1    Parameter2    Value2    Parameter3    Value3
 
+Test Nested Logging With Context Manager
+    [Documentation]    Test nested keyword logging using context manager
+    Do Something With Context Manager    Username    admin    Password    secret123    Email    admin@example.com
+
 *** Keywords ***
 # Add custom keywords here if needed

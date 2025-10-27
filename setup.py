@@ -8,7 +8,7 @@ long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
     name='robotframework-nestedlogger',
-    version='1.0.1',
+    version='1.0.2',
     author='Your Name',
     author_email='your.email@example.com',
     description='A Robot Framework library for nested keyword logging in Python implementations',
@@ -46,7 +46,7 @@ setup(
     license='Apache License 2.0',
     platforms='any',
     project_urls={
-        'Bug Reports': 'https://github.com/yourusername/robotframework-NestedLogger/issues',
-        'Source': 'https://github.com/yourusername/robotframework-NestedLogger',
+        'Bug Reports': 'https://github.com/ajadach/robotframework-NestedLogger/issues',
+        'Source': 'https://github.com/ajadach/robotframework-NestedLogger',
     },
 )

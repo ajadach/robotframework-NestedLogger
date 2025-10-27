@@ -28,8 +28,36 @@ class ExampleTestLib:
             try:
                 print("do you code")
                 my_logger.end_keyword(kw_name, lib_name, 'PASS')
-                
+                status = 'PASS'                
             except Exception as e:
-                my_logger.end_keyword(kw_name, lib_name, 'FAIL')
-                raise e
-        return("Done")
+                status = 'FAIL'
+            finally:
+                my_logger.end_keyword(kw_name, lib_name, status)
+                if status == 'FAIL':
+                    raise e
+                return("Done")
+
+    @keyword("Do Something With Context Manager")
+    def do_something_with_context_manager(self, *params_and_values):
+        """ Fills form parameters with provided parameters and values using context manager.
+
+        *Arguments:*
+        | =Name= | =Description= | =Example value= |
+        | params_and_values | Alternating parameter names and values | "Full Name"    "Artur Ziolkowski" |
+
+        *Return*
+        | String | Done |
+        """
+        lib_name = self.__class__.__name__
+        
+        for param, value in zip(params_and_values[::2], params_and_values[1::2]):
+            kw_name = "Do operation for {param} with value {value}".format(param=param, value=value)
+            
+            # Using NestedLogger as context manager
+            with NestedLogger(kw_name, lib_name, 'PASS'):
+                if value == 'admin@example.com':
+                    raise ValueError("Simulated error for testing")
+                print(f"Processing {param} with value {value}")
+                # Your code here - if exception occurs, status will be automatically set to FAIL
+                
+        return "Done"
