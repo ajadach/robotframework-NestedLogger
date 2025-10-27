@@ -8,13 +8,13 @@ long_description = (this_directory / "README.md").read_text(encoding='utf-8')
 
 setup(
     name='robotframework-nestedlogger',
-    version='1.0.2',
-    author='Your Name',
-    author_email='your.email@example.com',
+    version='1.0.3',
+    author='Artur Ziolkowski',
+    author_email='artur.k.ziolkowski@gmail.com',
     description='A Robot Framework library for nested keyword logging in Python implementations',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/robotframework-NestedLogger',
+    url='https://github.com/ajadach/robotframework-NestedLogger',
     packages=find_packages(exclude=['tests', 'tests.*']),
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -22,7 +22,6 @@ setup(
         'Topic :: Software Development :: Testing',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
@@ -33,7 +32,7 @@ setup(
         'Framework :: Robot Framework :: Library',
     ],
     keywords='robotframework testing testautomation nested logging',
-    python_requires='>=3.10',
+    python_requires='>=3.8',
     install_requires=[
         'robotframework>=7.3.0',
     ],
